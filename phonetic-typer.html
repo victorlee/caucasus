@@ -3,7 +3,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style>
 h1 {font-family:arial}
-table {overflow-x:auto;}
+.table {overflow-x:auto;}
 table td {
   border: 1px solid #eee;
   padding: 2px;
@@ -16,12 +16,13 @@ table td:hover {
 color:red;
 }
 textarea {
-width:30rem;
+width:20rem;
 }
 .gray {background-color:#eee}
 textarea {font-size:1.5rem}
 </style>
 <h1>Abkhaz phonetic typer</h1>
+<div class="table">
 <table>
 <tbody>
   <tr>
@@ -175,6 +176,7 @@ textarea {font-size:1.5rem}
 <br>
 <textarea id="txt" rows="3"></textarea>
 <button onclick="copytext()">Copy text</button>
+</div>
 <script>
     function enter(character) {
         var curPos =
