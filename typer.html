@@ -184,4 +184,10 @@ textarea {font-size:1.5rem}
         $("#txt").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos));
         $("#txt").focus();
     }
-        </script>
+        function copytext() {
+          var copyText = document.getElementById("txt");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+</script>
