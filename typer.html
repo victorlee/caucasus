@@ -1,0 +1,467 @@
+<html>
+<head>
+    <title>Abkhaz typer</title>
+<meta charset="utf-8">
+
+    <script type="text/javascript">
+	  
+var conversion = {
+"m":"м",
+"ph":"ԥ",
+"b":"б",
+"p":"п",
+"f":"ф",
+"v":"в",
+
+"n":"н",
+"th":"ҭ",
+"d":"д",
+"t":"т",
+"tsh":"ц",
+"dz":"ӡ",
+"ts":"ҵ",
+"s":"с",
+"z":"з",
+"l":"л",
+"r":"р",
+
+"ch":"ч",
+"c":"ҷ",
+
+"j":"ҩ",
+
+"c'h":"ҽ",
+"dz'":"џ",
+"c'":"ҿ",
+"s'":"ш",
+"z'":"ж",
+
+"kh":"қ",
+"g":"г",
+"k":"к",
+
+"q":"ҟ",
+"x":"х",
+"gh":"ӷ",
+
+"x'":"ҳ",
+
+"y":"ь",
+"w":"ә",
+
+"a":"а",
+"aa":"ы",
+"e":"е",
+"i":"и",
+"o":"о",
+"u":"у",
+
+
+  
+"M":"М",
+"Ph":"Ԥ",
+"B":"Б",
+"P":"П",
+"F":"Ф",
+"V":"В",
+
+"N":"Н",
+"Th":"Ҭ",
+"D":"Д",
+"T":"Т",
+"Tsh":"Ц",
+"Dz":"Ӡ",
+"Ts":"Ҵ",
+"S":"С",
+"Z":"З",
+"L":"Л",
+"R":"Р",
+
+"Ch":"Ч",
+"C":"Ҷ",
+
+"J":"Ҩ",
+
+"C'h":"Ҽ",
+"Dz'":"Џ",
+"C'":"Ҿ",
+"S'":"Ш",
+"Z'":"Ж",
+
+"Kh":"Қ",
+"G":"Г",
+"K":"К",
+
+"Q":"Ҟ",
+"X":"Х",
+"Gh":"Ӷ",
+
+"X'":"Ҳ",
+
+"Y":"Ь",
+"W":"Ә",
+
+"A":"А",
+"Aa":"Ы",
+"E":"Е",
+"I":"И",
+"O":"О",
+"U":"У",
+
+
+
+"M":"М",
+"PH":"Ԥ",
+"B":"Б",
+"P":"П",
+"F":"Ф",
+"V":"В",
+
+"N":"Н",
+"TH":"Ҭ",
+"D":"Д",
+"T":"Т",
+"TSH":"Ц",
+"DZ":"Ӡ",
+"TS":"Ҵ",
+"S":"С",
+"Z":"З",
+"L":"Л",
+"R":"Р",
+
+"CH":"Ч",
+"C":"Ҷ",
+
+"J":"Ҩ",
+
+"C'H":"Ҽ",
+"DZ'":"Џ",
+"C'":"Ҿ",
+"S'":"Ш",
+"Z'":"Ж",
+
+"KH":"Қ",
+"G":"Г",
+"K":"К",
+
+"Q":"Ҟ",
+"X":"Х",
+"GH":"Ӷ",
+
+"X'":"Ҳ",
+
+"Y":"Ь",
+"W":"Ә",
+
+"A":"А",
+"AA":"Ы",
+"E":"Е",
+"I":"И",
+"O":"О",
+"U":"У",
+
+        };
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+  }
+
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+    </script>
+    
+<style>
+html {
+font-family:arial
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+	font-size: 16pt;
+	font-family: Arial;
+    width: 96%;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 30%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
+
+
+</head>
+<body>  
+
+<body>  
+<br>
+<center><h1 class="text-center">Abkhaz typer</h1></center><br>
+ 
+<center>
+<table>
+<thead>
+<tr>
+<th>	
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+<button onclick="copytext()">Copy text</button>
+</th>
+<th style="width: 200px">Conversion table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<textarea
+id="input_textarea"
+autofocus=""
+placeholder="Input text here"
+rows="10"
+oninput="onInputTextChange(this.value)"></textarea>    
+</td>
+<td>
+<textarea rows="10" placeholder="output" id="output_textarea"></textarea>    
+</td>
+<td>
+
+<center>
+<div style="overflow-y: scroll; height:250px; width:170px">
+<table>
+<thead>
+<tr>
+<th>in.</th>
+<th>out.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m</td>
+<td>м</td>
+</tr>
+<tr>
+<td>ph</td>
+<td>ԥ</td>
+</tr>
+<tr>
+<td>b</td>
+<td>б</td>
+</tr>
+<tr>
+<td>p</td>
+<td>п</td>
+</tr>
+<tr>
+<td>f</td>
+<td>ф</td>
+</tr>
+<tr>
+<td>v</td>
+<td>в</td>
+</tr>
+<tr>
+<td>n</td>
+<td>н</td>
+</tr>
+<tr>
+<td>th</td>
+<td>ҭ</td>
+</tr>
+<tr>
+<td>d</td>
+<td>д</td>
+</tr>
+<tr>
+<td>t</td>
+<td>т</td>
+</tr>
+<tr>
+<td>tsh</td>
+<td>ц</td>
+</tr>
+<tr>
+<td>dz</td>
+<td>ӡ</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>ҵ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>с</td>
+</tr>
+<tr>
+<td>z</td>
+<td>з</td>
+</tr>
+<tr>
+<td>l</td>
+<td>л</td>
+</tr>
+<tr>
+<td>r</td>
+<td>р</td>
+</tr>
+<tr>
+<td>ch</td>
+<td>ч</td>
+</tr>
+<tr>
+<td>c</td>
+<td>ҷ</td>
+</tr>
+<tr>
+<td>j</td>
+<td>ҩ</td>
+</tr>
+<tr>
+<td>c&#39;h</td>
+<td>ҽ</td>
+</tr>
+<tr>
+<td>dz&#39;</td>
+<td>џ</td>
+</tr>
+<tr>
+<td>c&#39;</td>
+<td>ҿ</td>
+</tr>
+<tr>
+<td>s&#39;</td>
+<td>ш</td>
+</tr>
+<tr>
+<td>z&#39;</td>
+<td>ж</td>
+</tr>
+<tr>
+<td>kh</td>
+<td>қ</td>
+</tr>
+<tr>
+<td>g</td>
+<td>г</td>
+</tr>
+<tr>
+<td>k</td>
+<td>к</td>
+</tr>
+<tr>
+<td>q</td>
+<td>ҟ</td>
+</tr>
+<tr>
+<td>x</td>
+<td>х</td>
+</tr>
+<tr>
+<td>gh</td>
+<td>ӷ</td>
+</tr>
+<tr>
+<td>x&#39;</td>
+<td>ҳ</td>
+</tr>
+<tr>
+<td>y</td>
+<td>ь</td>
+</tr>
+<tr>
+<td>w</td>
+<td>ә</td>
+</tr>
+<tr>
+<td>a</td>
+<td>а</td>
+</tr>
+<tr>
+<td>aa</td>
+<td>ы</td>
+</tr>
+<tr>
+<td>e</td>
+<td>е</td>
+</tr>
+<tr>
+<td>i</td>
+<td>и</td>
+</tr>
+<tr>
+<td>o</td>
+<td>о</td>
+</tr>
+<tr>
+<td>u</td>
+<td>у</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</center>
+
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+
+</body>
+</html>
