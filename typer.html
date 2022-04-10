@@ -1,0 +1,186 @@
+<title>Abkhaz typer</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<style>
+table {overflow-x:auto;}
+table td {
+  border: 1px solid #eee;
+  padding: 2px;
+  font-size: 1.3rem;
+  text-align: center;
+  width: 5rem;
+  cursor: pointer;
+}
+table td:hover {
+color:red;
+}
+textarea {
+font-family:arial;
+width:30rem;
+}
+.gray {background-color:#eee}
+textarea {font-size:1.5rem}
+</style>
+<h1>Abkhaz typer</h1>
+<table>
+<tbody>
+  <tr>
+    <td onclick="enter('м')">м /м/</td>
+    <td onclick="enter('н')">н /n/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td onclick="enter('ԥ')">ԥ /pʰ/</td>
+    <td onclick="enter('ҭ')">ҭ /tʰ/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td onclick="enter('қ')">қ /kʰ/</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td onclick="enter('б')">б /b/</td>
+    <td onclick="enter('д')">д /d/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td onclick="enter('г')">г /ɡ/</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td onclick="enter('п')">п /pʼ/</td>
+    <td onclick="enter('т')">т /tʼ/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td onclick="enter('к')">к /kʼ/</td>
+    <td onclick="enter('ҟ')">ҟ /qʼ/</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td onclick="enter('ц')">ц /t͡sʰ/</td>
+    <td onclick="enter('ч')">ч /t͡ʃʰ/</td>
+    <td onclick="enter('цә')" class="gray">цә /t͡ɕʰʷ/</td>
+    <td onclick="enter('ҽ')">ҽ /ʈ͡ʂʰ/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td onclick="enter('ӡ')">ӡ /d͡z/</td>
+    <td onclick="enter('џь')" class="gray">џь /d͡ʒ/</td>
+    <td onclick="enter('ӡә')" class="gray">ӡә /d͡ʑʷ/</td>
+    <td onclick="enter('џ')">џ /ɖ͡ʐ/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td onclick="enter('ҵ')">ҵ /t͡sʼ/</td>
+    <td onclick="enter('ҷ')">ҷ /t͡ʃʼ/</td>
+    <td onclick="enter('ҵә')" class="gray">ҵә /t͡ɕʼʷ/</td>
+    <td onclick="enter('ҿ')">ҿ /ʈ͡ʂʼ/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td onclick="enter('ф')">ф /f/</td>
+    <td onclick="enter('с')">с /s/</td>
+    <td onclick="enter('шь')" class="gray">шь /ʃ/</td>
+    <td></td>
+    <td onclick="enter('ш')">ш /ʂ/</td>
+    <td></td>
+    <td onclick="enter('х')">х /χ/</td>
+    <td onclick="enter('ҳ')">ҳ /ħ/</td>
+  </tr>
+  <tr>
+    <td onclick="enter('в')">в /v/</td>
+    <td onclick="enter('з')">з /z/</td>
+    <td onclick="enter('жь')" class="gray">жь /ʒ/</td>
+    <td></td>
+    <td onclick="enter('ж')">ж /ʐ/</td>
+    <td></td>
+    <td onclick="enter('ӷ')">ӷ /ʁ/</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td onclick="enter('л')">л /l/</td>
+    <td></td>
+    <td onclick="enter('ҩ')">ҩ /ɥ/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td onclick="enter('р')">р /r/</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+<br>
+<table>
+<tbody>
+  <tr>
+    <td onclick="enter('ь')">ь /ʲ/</td>
+    <td onclick="enter('ә')">ә /ʷ/</td>
+  </tr>
+</tbody>
+</table>
+<br>
+<table>
+<tbody>
+  <tr>
+    <td onclick="enter('а')">а /ɑ/</td>
+    <td onclick="enter('ы')">ы /ə/</td>
+    <td onclick="enter('е')">е /e/</td>
+    <td onclick="enter('и')">и /i/</td>
+    <td onclick="enter('о')">о /o/</td>
+    <td onclick="enter('у')">у /u/</td>
+  </tr>
+</tbody>
+</table>
+<br>
+<table>
+<tbody>
+  <tr>
+    <td onclick="enter('я')">я</td>
+    <td onclick="enter('э')">э</td>
+    <td onclick="enter('ё')">ё</td>
+    <td onclick="enter('ю')">ю</td>
+    <td onclick="enter('й')">й</td>
+    <td onclick="enter('щ')">щ</td>
+    <td onclick="enter('ъ')">ъ</td>
+  </tr>
+</tbody>
+</table>
+<br>
+<textarea id="txt" rows="3"></textarea>
+
+<script>
+    function enter(character) {
+        var curPos =
+            document.getElementById("txt").selectionStart;
+        console.log(curPos);
+        let x = $("#txt").val();
+        let text_to_insert = character;
+        $("#txt").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos));
+    }
+        </script>
