@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Georgian Mkhedruli typer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript">
+
+
+var conversion = {
+"a":"ა",
+"b":"ბ",
+"g":"გ",
+"d":"დ",
+"e":"ე",
+"v":"ვ",
+"z":"ზ",
+"t":"თ",
+"i":"ი",
+"k'":"კ",
+"l":"ლ",
+"m":"მ",
+"n":"ნ",
+"o":"ო",
+"p'":"პ",
+"zh":"ჟ",
+"r":"რ",
+"s":"ს",
+"t'":"ტ",
+"u":"უ",
+"p":"ფ",
+"k":"ქ",
+"gh":"ღ",
+"q":"ყ",
+"q'":"ყ",
+"sh":"შ",
+"ch":"ჩ",
+"ts":"ც",
+"dz":"ძ",
+"ts'":"წ",
+"ch'":"ჭ",
+"x":"ხ",
+"j":"ჯ",
+"h":"ჰ",
+'"':"„",
+'""':"“",
+
+
+"w":"[invalid]",
+"y":"[invalid]",
+"f":"[invalid]",
+"c":"[ch? ts?]",
+
+"z`h":"ზჰ",
+"g`h":"გჰ",
+"s`h":"სჰ",
+"t`s":"თს",
+"d`z":"დზ",
+"k`h":"ქჰ",
+
+        };
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+  }
+
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+    </script>
+    
+<style>
+body {font-family: Arial;}
+table {
+  border-collapse: collapse;
+  width: 70%;
+}
+@media (max-width: 700px) {
+table {
+  border-collapse: collapse;
+  width: 97%;
+}
+}	
+
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+	font-size: 16pt;
+	font-family: Arial;
+    width: 96%;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 45%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.convtab {
+overflow-y: scroll; 
+height:250px;
+width:200px;
+font-size:19px
+}
+@media (max-width: 700px) {
+.convtab {
+width:100px;
+}
+}
+</style>
+
+
+</head>
+<body>    
+
+<center><h1 class="text-center">Georgian Mkhedruli typer</h1></center>
+
+<center>
+<table>
+<thead>
+<tr>
+<th>	
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+<button onclick="copytext()">Copy</button>
+<button onclick="google()">Ggl.</button><br>
+<button onclick="wikt()">wiktionary</button>
+<button onclick="tge()">translate.ge</button>
+<script>
+function google() {
+  window.open("https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=" + document.getElementById('output_textarea').value, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=300,width=600,height=600");
+}
+function wikt() {
+  window.open("https://en.wiktionary.org/wiki/" + document.getElementById('output_textarea').value, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=300,width=600,height=600");
+}
+function tge() {
+  window.open("https://www.translate.ge/word/" + document.getElementById('output_textarea').value, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=300,width=600,height=600");
+}
+</script>
+</th>
+<th>Conversion table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<textarea
+id="input_textarea"
+autofocus=""
+placeholder="Input"
+rows="10"
+oninput="onInputTextChange(this.value)"></textarea>    
+</td>
+<td>
+<textarea rows="10" placeholder="Output" id="output_textarea"></textarea>    
+</td>
+<td>
+
+<center>
+<div class="convtab">
+<table>
+<thead>
+<tr>
+<th>inp.</th>
+<th>outp.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>ა</td>
+</tr>
+<tr>
+<td>b</td>
+<td>ბ</td>
+</tr>
+<tr>
+<td>g</td>
+<td>გ</td>
+</tr>
+<tr>
+<td>d</td>
+<td>დ</td>
+</tr>
+<tr>
+<td>e</td>
+<td>ე</td>
+</tr>
+<tr>
+<td>v</td>
+<td>ვ</td>
+</tr>
+<tr>
+<td>z</td>
+<td>ზ</td>
+</tr>
+<tr>
+<td>t</td>
+<td>თ</td>
+</tr>
+<tr>
+<td>i</td>
+<td>ი</td>
+</tr>
+<tr>
+<td>k'</td>
+<td>კ</td>
+</tr>
+<tr>
+<td>l</td>
+<td>ლ</td>
+</tr>
+<tr>
+<td>m</td>
+<td>მ</td>
+</tr>
+<tr>
+<td>n</td>
+<td>ნ</td>
+</tr>
+<tr>
+<td>o</td>
+<td>ო</td>
+</tr>
+<tr>
+<td>p'</td>
+<td>პ</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>ჟ</td>
+</tr>
+<tr>
+<td>r</td>
+<td>რ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>ს</td>
+</tr>
+<tr>
+<td>t'</td>
+<td>ტ</td>
+</tr>
+<tr>
+<td>u</td>
+<td>უ</td>
+</tr>
+<tr>
+<td>p</td>
+<td>ფ</td>
+</tr>
+<tr>
+<td>k</td>
+<td>ქ</td>
+</tr>
+<tr>
+<td>gh</td>
+<td>ღ</td>
+</tr>
+<tr>
+<td>q, q'</td>
+<td>ყ</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>შ</td>
+</tr>
+<tr>
+<td>ch</td>
+<td>ჩ</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>ც</td>
+</tr>
+<tr>
+<td>dz</td>
+<td>ძ</td>
+</tr>
+<tr>
+<td>ts'</td>
+<td>წ</td>
+</tr>
+<tr>
+<td>ch'</td>
+<td>ჭ</td>
+</tr>
+<tr>
+<td>x</td>
+<td>ხ</td>
+</tr>
+<tr>
+<td>j</td>
+<td>ჯ</td>
+</tr>
+<tr>
+<td>h</td>
+<td>ჰ</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>„</td>
+</tr>
+<tr>
+<td>&quot;&quot;</td>
+<td>“</td>
+</tr>
+<tr>
+<td>`</td>
+<td>double letter split</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</center>
+
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+	
+
+
+
+</body>
+</html>
