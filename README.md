@@ -1,3 +1,5 @@
-[Abkhaz typer](typer.html)
+[Georgian typer](georgian-typer.html)
 
-[Abkhaz phonetic typer](phonetic-typer.html)
+[Abkhaz typer](abkhaz-typer.html)
+
+[Abkhaz phonetic typer](abkhaz-phonetic-typer.html)
